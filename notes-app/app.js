@@ -1,9 +1,9 @@
-const fs = require('fs');
+const add = require('./utils');
+const notes = require('./notes');
 
-// fs.writeFileSync('notes.txt', 'My name is Heikel!');
-fs.appendFileSync('notes.txt', ' I live in Detroit.');
-// Chanllenge: Append a message to notes.txt
-//
-// 1. Use appendFileSync to append to the file
-// 2. Run the script.
-// 3. Check your work by opening the file and viewing the appended text.
+const sum = add(4, -2);
+console.log(sum);
+
+const note = notes();
+
+console.log(note);
