@@ -28,11 +28,12 @@ const removeNote = function (title) {
  const notesToKeep = notes.filter(function (note) {
   return note.title !== title;
  });
- savedNotes(notesToKeep);
- if (notesToKeep.length === notes.length) {
-  console.log(chalk.white.bgRed('No note found!'));
+
+ if (notes.length > notesToKeep.length) {
+  console.log(chalk.bgGreen(`Note removed successfully`));
+  savedNotes(notesToKeep);
  } else {
-  console.log(chalk.white.bgGreen(`Note removed successfully`));
+  console.log(chalk.bgRed('No note found!'));
  }
 };
 
