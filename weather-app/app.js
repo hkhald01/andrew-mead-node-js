@@ -1,40 +1,29 @@
-const request = require('request');
+const geocode = require('./utils/geocode');
+const forecast = require('./utils/forecast');
 
-const weatherstack_access_key = '80c7a460080eca984383d81085484b76';
-const mapbox_access_token =
- 'pk.eyJ1IjoiaGtoYWxkaSIsImEiOiJja3R6NWdpdDgwZWRjMnVwZ2JweWVscjEwIn0.EHBk7WXR2vnQMs4VvuyROA';
+const address = process.argv[2];
+console.log(process.argv);
 
-const search_text = 'los angelos';
-let weather_query = '';
-const mapbox_url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${search_text}.json?access_token=${mapbox_access_token}`;
-const weatherstack_url = `http://api.weatherstack.com/current?access_key=${weatherstack_access_key}&query=34.063249,-118.358512&units=f`;
-
-request({ url: mapbox_url, json: true }, (error, response) => {
- if (error) {
-  console.log('unable to connect to mapbox service!');
- } else if (response.body.features.length === 0) {
-  console.log('unable to find location!');
- } else {
-  weather_query = `${response.body.features[0].center[1]},${response.body.features[0].center[0]}`;
-  console.log('weather_query: ' + weather_query);
- }
-});
-
-request({ url: weatherstack_url, json: true }, (error, response) => {
- if (error) {
-  console.log('unable to connct to weather service');
- } else if (response.body.error) {
-  console.log('unable to find location');
- } else {
-  const data = response.body.current;
-  console.log(
-   `${data.weather_descriptions[0]}. It is currently ${data.temperature} degrees out, it feels like ${data.feelslike} degrees out. There is a  ${data.precip}% chance of rain`
-  );
- }
-});
+if (!address) {
+ console.log('Please provide an address');
+} else {
+ geocode(address, (error, data) => {
+  if (error) {
+   return console.log(error);
+  }
+  forecast(data.latitude, data.longitude, (error, forecastData) => {
+   if (error) {
+    return console.log(error);
+   }
+   console.log(data.location);
+   console.log(forecastData);
+  });
+ });
+}
+// forecast(37.8267, -122.4233, (error, data) => {
 
 // basic async function and how it works:
-// function call to stack to node aoi to callstack queue
+// function call to stack to node api to callstack queue
 
 /*
 console.log('Starting');
