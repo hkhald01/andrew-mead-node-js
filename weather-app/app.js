@@ -15,7 +15,8 @@ if (!address) {
    if (error) {
     return console.log(error);
    }
-   console.log(data.location);
+   const { location } = data;
+   console.log(location);
    console.log(forecastData);
   });
  });
