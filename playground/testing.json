@@ -1,0 +1,145 @@
+{
+ "notes": "string",
+ "request_time": "2020-12-16T17:45:00Z",
+ "requested_service": "string",
+ "driver_details": {
+  "driver_name": "string",
+  "driver_photo": ["string"],
+  "coordinates": {
+   "lng": -83.25368,
+   "lat": 42.278305
+  },
+  "driver_phone": "string"
+ },
+ "pickup_location": {
+  "zip": "48126",
+  "address2": "Awesome Town",
+  "city": "Dearborn",
+  "address1": "123, good street",
+  "coordinates": {
+   "lng": -83.25368,
+   "lat": 42.278305
+  },
+  "state": "MI"
+ },
+ "customer_pickup_location": {
+  "zip": "48126",
+  "address2": "Awesome Town",
+  "city": "Dearborn",
+  "address1": "123, good street",
+  "coordinates": {
+   "lng": -83.25368,
+   "lat": 42.278305
+  },
+  "state": "MI"
+ },
+ "trip_details": {
+  "charges": {
+   "total": 0,
+   "details": [
+    {
+     "total": 0,
+     "description": "string"
+    }
+   ]
+  },
+  "trip_id": 1163471,
+  "trip_type": 0,
+  "status_code": 0,
+  "stops_overview": [
+   {
+    "actual_arrival": "string",
+    "address": {
+     "zip": "48126",
+     "address2": "Awesome Town",
+     "city": "Dearborn",
+     "address1": "123, good street",
+     "coordinates": {
+      "lng": -83.25368,
+      "lat": 42.278305
+     },
+     "state": "MI"
+    },
+    "estimated_arrival": "string",
+    "stop_type": 0
+   }
+  ],
+  "pickup_time": "string",
+  "round_trip": true
+ },
+ "dealer": {
+  "address": {
+   "zip": "48126",
+   "address2": "Awesome Town",
+   "city": "Dearborn",
+   "address1": "123, good street",
+   "coordinates": {
+    "lng": -83.25368,
+    "lat": 42.278305
+   },
+   "state": "MI"
+  },
+  "mobile_logo_image": [
+   "{'http://logoimages.com/image1'},{'http://logoimages.com/image2'}"
+  ],
+  "contact": {
+   "address": {
+    "name": "Home",
+    "details": {
+     "zip": "48126",
+     "address2": "Awesome Town",
+     "city": "Dearborn",
+     "address1": "123, good street",
+     "coordinates": {
+      "lng": -83.25368,
+      "lat": 42.278305
+     },
+     "state": "MI"
+    }
+   },
+   "full_name": "Peter Cole",
+   "profile_pic": ["{'http://images.com/image1'},{'http://images.com/image2'}"],
+   "last_name": "Cole",
+   "phone_number": "0756846327",
+   "first_name": "Pete",
+   "email": "person@email.com"
+  },
+  "name": "Alex Motors",
+  "logo_image": [
+   "{'http://logoimages.com/image1'},{'http://logoimages.com/image2'}"
+  ]
+ },
+ "customer": {
+  "address": {
+   "name": "Home",
+   "details": {
+    "zip": "48126",
+    "address2": "Awesome Town",
+    "city": "Dearborn",
+    "address1": "123, good street",
+    "coordinates": {
+     "lng": -83.25368,
+     "lat": 42.278305
+    },
+    "state": "MI"
+   }
+  },
+  "full_name": "Peter Cole",
+  "profile_pic": ["{'http://images.com/image1'},{'http://images.com/image2'}"],
+  "last_name": "Cole",
+  "phone_number": "0756846327",
+  "first_name": "Pete",
+  "email": "person@email.com"
+ },
+ "dropoff_location": {
+  "zip": "48126",
+  "address2": "Awesome Town",
+  "city": "Dearborn",
+  "address1": "123, good street",
+  "coordinates": {
+   "lng": -83.25368,
+   "lat": 42.278305
+  },
+  "state": "MI"
+ }
+}

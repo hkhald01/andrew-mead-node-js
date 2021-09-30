@@ -12,3 +12,7 @@ user.name = 'Heikel';
 user.age = 46;
 const userJSON = JSON.stringify(user);
 fs.writeFileSync('1-json.json', userJSON);
+
+// const buffer = fs.readFileSync('testing.json');
+// const bufferJson = JSON.parse(buffer.toString());
+// console.log(bufferJson);
