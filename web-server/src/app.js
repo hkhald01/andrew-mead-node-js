@@ -5,7 +5,7 @@ const hbs = require('hbs');
 const app = express();
 
 //define paths for Express config
-const publicDirectoryPath = path.join(__dirname, 'public');
+const publicDirectoryPath = path.join(__dirname, '../public');
 const viewsPath = path.join(__dirname, '../templates/views');
 const partialPath = path.join(__dirname, '../templates/partials');
 
@@ -33,8 +33,25 @@ app.get('/help', (req, res) => {
   name: 'Andrew Mead',
  });
 });
+
 app.get('/weather', (req, res) => {
  res.send({ location: 'Detroit', forecast: 53 });
+});
+
+app.get('/help/*', (req, res) => {
+ res.render('404', {
+  title: '404',
+  name: 'Andre Mead',
+  errorMessage: 'Help article not found',
+ });
+});
+
+app.get('*', (req, res) => {
+ res.render('404', {
+  title: '404',
+  name: 'Andrew Mead',
+  errorMessage: 'Page not found',
+ });
 });
 
 app.listen(3000, () => {
