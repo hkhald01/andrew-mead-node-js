@@ -11,8 +11,10 @@ const forecast = (latitude, longitude, callback) => {
   } else {
    callback(
     undefined,
-    `${body.current.weather_descriptions}. It is currently ${body.current.temperature}.There is a ${body.current.precip}% chance of rain`
+    `${body.current.weather_descriptions}. It is currently ${body.current.temperature}.
+     There is a ${body.current.precip}% chance of rain.Humidity is ${body.current.humidity}%, wind speed is ${body.current.wind_speed} knots`
    );
+   console.log(body);
   }
  });
 };
