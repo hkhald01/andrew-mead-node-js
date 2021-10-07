@@ -19,8 +19,8 @@ if (error) {
 console.log('Connection usccessfull !');
 const db = client.db(database);
 
-db.collection('tasks').deleteOne({description: 'Pot plants'})
-.then(result => {console.log(result);}).catch(error => {console.log(error)});
+// db.collection('tasks').deleteOne({description: 'Pot plants'})
+// .then(result => {console.log(result);}).catch(error => {console.log(error)});
 
 
 // db.collection('users').deleteMany({age: 27})
