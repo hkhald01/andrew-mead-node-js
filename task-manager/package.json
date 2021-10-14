@@ -1,15 +1,28 @@
 {
-  "name": "task-manager",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "mongodb": "^3.1.10"
-  }
+	"name": "task-manager",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node src/index.js",
+		"dev": "nodemon src/index.js",
+		"prettier": "prettier --check \"**/*.{css,js}\"",
+		"prettier:fix": "prettier --write \"**/*.{css,js}\""
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.16.4",
+		"mongodb": "^3.1.10",
+		"mongoose": "^5.3.16",
+		"validator": "^10.9.0"
+	},
+	"devDependencies": {
+		"eslint": "^7.32.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-prettier": "^4.0.0",
+		"nodemon": "^1.18.9",
+		"prettier": "^2.4.1"
+	}
 }
