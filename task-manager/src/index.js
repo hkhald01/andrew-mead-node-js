@@ -1,7 +1,7 @@
 const express = require('express');
 require('./db/mongoose');
 const jwt = require('jsonwebtoken');
-
+const User = require('./models/user');
 const userRouter = require('./routes/user');
 const taskRouter = require('./routes/task');
 
@@ -16,21 +16,32 @@ app.listen(port, () => {
 	console.log(`server is up and running @ port ${port}`);
 });
 
-app.use((req, res, next) => {
-	res.status(503).send('Site is currently down check back soon');
-});
-
-const myFnction = async () => {
-	const token = jwt.sign({ _id: 'abc123' }, 'thisismynewcourse', {
-		expiresIn: '7 days',
-	});
-	console.log(token);
-
-	const payload = jwt.verify(token, 'thisismynewcourse');
-	console.log(payload);
+const Task = require('./models/task');
+const main = async () => {
+	// const task = await Task.findById('6171a3d994282319b261cd84');
+	// await task.populate('owner').execPopulate();
+	// console.log(task.owner);
+	const user = await User.findById('6171a2f494282319b261cd81');
+	await user.populate('tasks').execPopulate();
+	console.log(user.tasks);
 };
+main();
 
-myFnction();
+// app.use((req, res, next) => {
+// 	res.status(503).send('Site is currently down check back soon');
+// });
+
+// const myFnction = async () => {
+// 	const token = jwt.sign({ _id: 'abc123' }, 'thisismynewcourse', {
+// 		expiresIn: '7 days',
+// 	});
+// 	console.log(token);
+
+// 	const payload = jwt.verify(token, 'thisismynewcourse');
+// 	console.log(payload);
+// };
+
+// myFnction();
 // app.post('/users', (req, res) => {
 // 	const user = new User(req.body);
 
