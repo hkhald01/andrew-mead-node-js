@@ -16,16 +16,16 @@ app.listen(port, () => {
 	console.log(`server is up and running @ port ${port}`);
 });
 
-const Task = require('./models/task');
-const main = async () => {
-	// const task = await Task.findById('6171a3d994282319b261cd84');
-	// await task.populate('owner').execPopulate();
-	// console.log(task.owner);
-	const user = await User.findById('6171a2f494282319b261cd81');
-	await user.populate('tasks').execPopulate();
-	console.log(user.tasks);
-};
-main();
+// const Task = require('./models/task');
+// const main = async () => {
+// 	// const task = await Task.findById('6171a3d994282319b261cd84');
+// 	// await task.populate('owner').execPopulate();
+// 	// console.log(task.owner);
+// 	const user = await User.findById('6171a2f494282319b261cd81');
+// 	await user.populate('tasks').execPopulate();
+// 	console.log(user.tasks);
+// };
+// main();
 
 // app.use((req, res, next) => {
 // 	res.status(503).send('Site is currently down check back soon');
