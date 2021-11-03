@@ -4,50 +4,57 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Task = require('./../models/task');
 
-const userSchema = new mongoose.Schema({
-	name: {
-		type: String,
-		required: true,
-		trim: true,
-	},
-	email: {
-		type: String,
-		required: true,
-		unique: true,
-		trim: true,
-		lowercase: true,
-		validate: (value) => {
-			if (!validator.isEmail(value)) {
-				throw new Error('Email is invalid');
-			}
+const userSchema = new mongoose.Schema(
+	{
+		name: {
+			type: String,
+			required: true,
+			trim: true,
 		},
-	},
-	age: {
-		type: Number,
-		default: 0,
-		validate: (value) => {
-			if (value < 0) {
-				throw new Error('Age must be a positive number');
-			}
+		email: {
+			type: String,
+			required: true,
+			unique: true,
+			trim: true,
+			lowercase: true,
+			validate: (value) => {
+				if (!validator.isEmail(value)) {
+					throw new Error('Email is invalid');
+				}
+			},
 		},
-	},
-	password: {
-		type: String,
-		trim: true,
-		minlength: 7,
-		validate: (value) => {
-			if (value.toLowerCase().includes('password')) {
-				console.log('val', value, value.includes('password'));
-				throw new Error('Password should not contain password');
-			}
+		age: {
+			type: Number,
+			default: 0,
+			validate: (value) => {
+				if (value < 0) {
+					throw new Error('Age must be a positive number');
+				}
+			},
 		},
-	},
-	tokens: [
-		{
-			token: { type: String, required: true },
+		password: {
+			type: String,
+			trim: true,
+			minlength: 7,
+			validate: (value) => {
+				if (value.toLowerCase().includes('password')) {
+					console.log('val', value, value.includes('password'));
+					throw new Error(
+						'Password should not contain password',
+					);
+				}
+			},
 		},
-	],
-});
+		tokens: [
+			{
+				token: { type: String, required: true },
+			},
+		],
+	},
+	{
+		timestamps: true,
+	},
+);
 
 userSchema.statics.findByCredentials = async (email, password) => {
 	const user = await User.findOne({ email });
